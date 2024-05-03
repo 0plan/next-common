@@ -1,5 +1,4 @@
-import remarkFrontmatter from 'remark-frontmatter'
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import remarkGfm from 'remark-gfm'
 import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
@@ -18,8 +17,11 @@ const nextConfig = {
     },
 };
 const withMDX = createMDX({
-    remarkPlugins: [remarkFrontmatter,remarkMdxFrontmatter],
-    rehypePlugins: [],
+    extension: /\.mdx?$/,
+    options: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [],
+    }
 })
 
 export default withMDX(nextConfig);
