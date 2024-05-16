@@ -5,24 +5,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Allows customizing built-in components, e.g. to add styling.
     h1: ({ children }) => (
-      <h1 className="scroll-m-20 py-4 text-4xl font-bold tracking-tight text-primary lg:text-5xl">
+      <h1 className="scroll-m-20 border-b py-4 tracking-tight text-primary">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="scroll-m-20 border-b py-4 text-3xl font-semibold tracking-tight text-secondary first:mt-0">
-        {children}
-      </h2>
+      <h2 className="scroll-m-20 py-4 tracking-tight">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="scroll-m-24 py-4 text-2xl font-semibold tracking-tight">
-        {children}
-      </h3>
+      <h3 className="scroll-m-24 py-4 tracking-tight">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-        {children}
-      </h4>
+      <h4 className="scroll-m-20 tracking-tight">{children}</h4>
     ),
     p: ({ children }) => (
       <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>
@@ -32,11 +26,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     ul: ({ children }) => (
       <ul className="ml-6 list-disc py-6 [&>li]:mt-2">{children}</ul>
-    ),
-    code: ({ children }) => (
-      <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-        {children}
-      </code>
     ),
     table: ({ children }) => <table className={"w-full"}>{children}</table>,
     tr: ({ children }) => (
@@ -65,6 +54,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         style={{ width: "100%", height: "auto" }}
         {...(props as ImageProps)}
       />
+    ),
+    pre: ({ children }) => (
+      <div className="my-4">
+        <pre>{children}</pre>
+      </div>
     ),
 
     ...components,

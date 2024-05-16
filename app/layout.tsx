@@ -23,16 +23,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <ThemeProvider attribute={"class"} defaultTheme={"system"}>
-        <body className={cn("bg-background font-sans", fontSans.variable)}>
+    <html lang="ko" suppressHydrationWarning={true}>
+      <body className={cn("bg-background font-sans", fontSans.variable)}>
+        <ThemeProvider attribute={"class"} defaultTheme={"system"}>
           <Toaster />
           <Header />
           <main className="mx-auto mt-[72px] w-full max-w-[85rem] px-4 py-5">
             {children}
           </main>
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
